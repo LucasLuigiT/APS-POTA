@@ -25,7 +25,40 @@ public class APS {
         ArrayList vetores10000 = new ArrayList();
         vetoresAleatorios.vetor(10000, vetores10000);
 
+
+        // Imprimindo vetores antes da ordenacao
+        System.out.print("Antes da ordenacao:");
         System.out.println(Arrays.toString((int[]) vetores5.get(0)));
+
+        // Ordenando
+        System.out.print("Chamada MERGE:     ");
+        ArrayList merge = MergeSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) merge.get(0)));
+
+        System.out.print("Chamada INSERTION: ");
+        ArrayList insertion = InsertionSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) insertion.get(0)));
+
+        System.out.print("Chamada SELECTION: ");
+        ArrayList selection = SelectionSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) selection.get(0)));
+
+        System.out.print("Chamada HEAPSORT:  ");
+        ArrayList heap = HeapSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) heap.get(0)));
+
+        System.out.print("Chamada BUBBLESORT:");
+        ArrayList bubble = BubbleSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) bubble.get(0)));
+
+        System.out.print("Chamada QUICKSORT: ");
+        ArrayList quick = QuickSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) quick.get(0)));
+
+        // Imprimindo vetores depois da ordenacao
+        System.out.print("Apos a ordenacao:  ");
+        System.out.println(Arrays.toString((int[]) vetores5.get(0)));
+
     }
 
 }
