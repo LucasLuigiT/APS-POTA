@@ -7,47 +7,44 @@ public class HeapSort {
 
     public static int[] heapSort(int[] vetor) {
 
-        // Criando heap
+        // Criando heap maxima
         for (int i = vetor.length / 2 - 1; i >= 0; i--)
-            heapify(vetor, vetor.length, i);
+            criarHeap(vetor, vetor.length, i);
 
-        // One by one extract (Max) an element from heap and
-        // replace it with the last element in the array
         for (int i = vetor.length -1; i >= 0; i--) {
 
-            //arrA[0] is a root of the heap and is the max element in heap
             int x = vetor[0];
             vetor[0] = vetor[i];
             vetor[i] = x;
 
-            // call max heapify on the reduced heap
-            heapify(vetor, i, 0);
+            criarHeap(vetor, i, 0);
         }
 
         return vetor;
     }
 
-    static void heapify(int vetor[], int heapSize, int i) {
+    static void criarHeap(int vetor[], int tamanho, int i) {
+
         int maior = i;
-        int leftChildIdx  = 2*i + 1;
-        int rightChildIdx  = 2*i + 2;
+        int esquerda  = 2*i + 1;
+        int direita  = 2*i + 2;
 
-        // If left child is larger than root
-        if (leftChildIdx  < heapSize && vetor[leftChildIdx ] > vetor[maior])
-            maior = leftChildIdx ;
+        // Comparando o filho da esquerda com a raiz
+        if (esquerda  < tamanho && vetor[esquerda] > vetor[maior])
+            maior = esquerda;
 
-        // If right child is larger than largest so far
-        if (rightChildIdx  < heapSize && vetor[rightChildIdx ] > vetor[maior])
-            maior = rightChildIdx ;
+        // Comparando o filho da direita com o maior
+        if (direita  < tamanho && vetor[direita] > vetor[maior])
+            maior = direita;
 
-        // If largest is not root
+        // Comparando o maior com a raiz
         if (maior != i) {
             int trocar = vetor[i];
             vetor[i] = vetor[maior];
             vetor[maior] = trocar;
 
             // Chamada recursiva
-            heapify(vetor, heapSize, maior);
+            criarHeap(vetor, tamanho, maior);
         }
     }
 

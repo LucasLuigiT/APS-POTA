@@ -1,47 +1,52 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuickSort {
 
-    public QuickSort() {    }
-
-    public static void quickSort(int[] vetor, int start, int end){
-
-        int partition = partition(vetor, start, end);
-
-        if(partition -1 > start) {
-            quickSort(vetor, start, partition - 1);
-        }
-        if(partition +1 < end) {
-            quickSort(vetor, partition + 1, end);
-        }
+    public QuickSort() {
     }
 
-    private static int partition(int[] vetor, int start, int end){
-        int pivot = vetor[end];
+    public static int[] quickSort(int[] vetor, int inicio, int fim){
 
-        for(int i = start; i < end; i++){
+        int partition = particionar(vetor, inicio, fim);
+
+        if(partition -1 > inicio) {
+            quickSort(vetor, inicio, partition - 1);
+        }
+        if(partition +1 < fim) {
+            quickSort(vetor, partition + 1, fim);
+        }
+
+        return vetor;
+    }
+
+    private static int particionar(int[] vetor, int inicio, int fim){
+        int pivot = vetor[fim];
+
+        for (int i = inicio; i < fim; i++){
             if(vetor[i] < pivot){
-                int temp     = vetor[start];
-                vetor[start] = vetor[i];
+                int temp     = vetor[inicio];
+                vetor[inicio] = vetor[i];
                 vetor[i]     = temp;
-                start++;
+                inicio++;
             }
         }
 
-        int temp     = vetor[start];
-        vetor[start] = pivot;
-        vetor[end]   = temp;
+        int temp     = vetor[inicio];
+        vetor[inicio] = pivot;
+        vetor[fim]   = temp;
 
-        return start;
+        return inicio;
     }
 
     static ArrayList ordenar(ArrayList lista){
 
         ArrayList listaOrdenada = new ArrayList();
-        listaOrdenada.addAll(lista);
 
-        for (Object n: listaOrdenada) {
-            quickSort((int[]) n, 0 , ((int[]) n).length -1);
+        for (Object n: lista) {
+            int[] copia = (int[]) n;
+            int[] vetorOrdenado = Arrays.copyOf(copia, copia.length);
+            listaOrdenada.add(quickSort(vetorOrdenado, 0, vetorOrdenado.length -1));
         }
 
         return listaOrdenada;
