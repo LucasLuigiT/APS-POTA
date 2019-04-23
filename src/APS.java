@@ -55,6 +55,10 @@ public class APS {
         ArrayList quick = QuickSort.ordenar(vetores5);
         System.out.println(Arrays.toString((int[]) quick.get(0)));
 
+        System.out.print("Chamada COUNTSORT: ");
+        ArrayList count = CountSort.ordenar(vetores5);
+        System.out.println(Arrays.toString((int[]) count.get(0)));
+
         // Imprimindo vetores depois da ordenacao
         System.out.print("Apos a ordenacao:  ");
         System.out.println(Arrays.toString((int[]) vetores5.get(0)));
