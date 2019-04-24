@@ -8,13 +8,13 @@ public class QuickSort {
 
     public static int[] quickSort(int[] vetor, int inicio, int fim){
 
-        int partition = particionar(vetor, inicio, fim);
+        int parte = particionar(vetor, inicio, fim);
 
-        if(partition -1 > inicio) {
-            quickSort(vetor, inicio, partition - 1);
+        if(parte -1 > inicio) {
+            quickSort(vetor, inicio, parte - 1);
         }
-        if(partition +1 < fim) {
-            quickSort(vetor, partition + 1, fim);
+        if(parte +1 < fim) {
+            quickSort(vetor, parte + 1, fim);
         }
 
         return vetor;

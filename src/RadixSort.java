@@ -3,16 +3,18 @@ import java.util.Arrays;
 
 public class RadixSort {
 
-    public RadixSort() {    }
+    int comparacoes = 0;
+
+    public RadixSort() {
+        this.comparacoes = comparacoes;
+    }
 
     static int[] radixSort(int[] vetor){
 
         int n = vetor.length;
         int maior = acharMaior(vetor, n);
 
-        // Do counting sort for every digit. Note that instead
-        // of passing digit number, exp is passed. exp is 10^i
-        // where i is current digit number
+        // Realiza o Count Sort para cada elemento do vetor
         for (int exp = 1; maior /exp > 0; exp *= 10) {
             CountSort.countSort(vetor);
         }
@@ -20,6 +22,8 @@ public class RadixSort {
         return vetor;
     }
 
+
+    // Percorre o vetor sem ordenar-lo, retornando o maior elemento do mesmo
     static int acharMaior(int[] vetor, int n){
 
         int max = vetor[0];

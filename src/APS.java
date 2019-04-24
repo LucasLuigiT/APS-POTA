@@ -60,12 +60,13 @@ public class APS {
         System.out.println(Arrays.toString((int[]) count.get(0)));
 
         System.out.print("Chamada RADIXSORT: ");
-        ArrayList radix = CountSort.ordenar(vetores5);
+        ArrayList radix = RadixSort.ordenar(vetores5);
         System.out.println(Arrays.toString((int[]) radix.get(0)));
 
         // Imprimindo vetores depois da ordenacao
         System.out.print("Apos a ordenacao:  ");
         System.out.println(Arrays.toString((int[]) vetores5.get(0)));
+
 
     }
 

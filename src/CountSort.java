@@ -3,41 +3,44 @@ import java.util.Arrays;
 
 public class CountSort {
 
-    public CountSort() {    }
+    static int comparacoes = 0;
+
+    public CountSort() {
+        this.comparacoes = comparacoes;
+    }
 
     public static int[] countSort(int[] vetor){
+
         int n = vetor.length;
 
-        // The output character array that will have sorted arr
-        char output[] = new char[n];
+        char vetorAuxiliar[] = new char[n];
 
-        // Create a count array to store count of inidividul
-        // characters and initialize count array as 0
+        // Vetor para armazenar o numero de ocorrencias
         int count[] = new int[256];
-        for (int i=0; i<256; ++i)
+        for (int i=0; i < 256; ++i) {
             count[i] = 0;
+        }
 
-        // store count of each character
-        for (int i=0; i<n; ++i)
+        // Contando as ocorrencias de cada elemento
+        for (int i = 0; i < n; ++i) {
             ++count[vetor[i]];
+        }
 
-        // Change count[i] so that count[i] now contains actual
-        // position of this character in output array
-        for (int i=1; i<=255; ++i)
-            count[i] += count[i-1];
+        // Alterando o vetor para que cada valor corresponda as posicoes
+        for (int i = 1; i <= 255; ++i) {
+            count[i] += count[i - 1];
+        }
 
-        // Build the output character array
-        // To make it stable we are operating in reverse order.
-        for (int i = n-1; i>=0; i--)
-        {
-            output[count[vetor[i]]-1] = (char) vetor[i];
+        // Criando vetor de retorno
+        for (int i = n - 1; i >= 0; i--) {
+            vetorAuxiliar[count[vetor[i]] -1] = (char) vetor[i];
             --count[vetor[i]];
         }
 
-        // Copy the output array to arr, so that arr now
-        // contains sorted characters
-        for (int i = 0; i<n; ++i)
-            vetor[i] = output[i];
+        // Atribuindo os valores no vetor de retorno ordenados
+        for (int i = 0; i < n; ++i) {
+            vetor[i] = vetorAuxiliar[i];
+        }
 
         return vetor;
     }
