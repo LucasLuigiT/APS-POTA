@@ -3,7 +3,10 @@ import java.util.Arrays;
 
 public class QuickSort {
 
+    static int comparacoes = 0;
+
     public QuickSort() {
+        this.comparacoes = comparacoes;
     }
 
     public static int[] quickSort(int[] vetor, int inicio, int fim){
@@ -11,9 +14,11 @@ public class QuickSort {
         int parte = particionar(vetor, inicio, fim);
 
         if(parte -1 > inicio) {
+            comparacoes++;
             quickSort(vetor, inicio, parte - 1);
         }
         if(parte +1 < fim) {
+            comparacoes++;
             quickSort(vetor, parte + 1, fim);
         }
 
@@ -24,7 +29,10 @@ public class QuickSort {
         int pivot = vetor[fim];
 
         for (int i = inicio; i < fim; i++){
+
             if(vetor[i] < pivot){
+                // Troca
+                comparacoes++;
                 int temp     = vetor[inicio];
                 vetor[inicio] = vetor[i];
                 vetor[i]     = temp;

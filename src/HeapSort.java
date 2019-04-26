@@ -3,7 +3,11 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-    public HeapSort() {    }
+    static int comparacoes = 0;
+
+    public HeapSort() {
+        this.comparacoes = comparacoes;
+    }
 
     public static int[] heapSort(int[] vetor) {
 
@@ -30,15 +34,20 @@ public class HeapSort {
         int direita  = 2*i + 2;
 
         // Comparando o filho da esquerda com a raiz
-        if (esquerda  < tamanho && vetor[esquerda] > vetor[maior])
+        if (esquerda  < tamanho && vetor[esquerda] > vetor[maior]) {
+            comparacoes++;
             maior = esquerda;
+        }
 
         // Comparando o filho da direita com o maior
-        if (direita  < tamanho && vetor[direita] > vetor[maior])
+        if (direita  < tamanho && vetor[direita] > vetor[maior]) {
+            comparacoes++;
             maior = direita;
+        }
 
         // Comparando o maior com a raiz
         if (maior != i) {
+            comparacoes++;
             int trocar = vetor[i];
             vetor[i] = vetor[maior];
             vetor[maior] = trocar;

@@ -3,7 +3,11 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    public MergeSort() {    }
+    static int comparacoes = 0;
+
+    public MergeSort() {
+        this.comparacoes = comparacoes;
+    }
 
     public static int[] mergeSort(int[] vetor) {
 
@@ -34,8 +38,10 @@ public class MergeSort {
 
         int i = 0, j = 0, k = 0;
 
+        //Comparando
         while (i < esquerda && j < direita) {
             if (e[i] <= d[j]) {
+                comparacoes++;
                 a[k++] = e[i++];
             }
             else {
@@ -43,10 +49,12 @@ public class MergeSort {
             }
         }
 
+        //  Copiando elementos da esquerda
         while (i < esquerda) {
             a[k++] = e[i++];
         }
 
+        // Copiando elementos da direita
         while (j < direita) {
             a[k++] = d[j++];
         }

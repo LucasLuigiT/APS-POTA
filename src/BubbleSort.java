@@ -3,7 +3,11 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-    public BubbleSort() {    }
+    static int comparacoes = 0;
+
+    public BubbleSort() {
+        this.comparacoes = comparacoes;
+    }
 
     public static int[] bubbleSort(int [] vetor){
 
@@ -11,12 +15,18 @@ public class BubbleSort {
         boolean inversao = true;
 
         while (inversao) {
+
             inversao = false;
+
             for (int i = 0; i < (vetor.length) -1; i++){
+
                 if (vetor[i] > vetor[i + 1]){
+                    // Troca
+                    comparacoes++;
                     num = vetor[i + 1];
                     vetor[i + 1] = vetor[i];
                     vetor[i] = num;
+
                     inversao = true;
                 }
             }

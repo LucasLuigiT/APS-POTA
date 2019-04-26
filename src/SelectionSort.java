@@ -3,16 +3,21 @@ import java.util.Arrays;
 
 public class SelectionSort {
 
-    public SelectionSort() {    }
+    static int comparacoes = 0;
+
+    public SelectionSort() {
+        this.comparacoes = comparacoes;
+    }
 
     public static int[] selectionSort(int[] vetor) {
-
 
         for (int i = 0; i < vetor.length - 1; i++) {
 
             int menor = i;
+
             for (int j = i + 1; j < vetor.length; j++)
                 if (vetor[j] < vetor[menor]) {
+                    comparacoes++;
                     menor = j;
                 }
 

@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class RadixSort {
 
-    int comparacoes = 0;
+    static int comparacoes = 0;
 
     public RadixSort() {
         this.comparacoes = comparacoes;

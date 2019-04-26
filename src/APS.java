@@ -32,41 +32,48 @@ public class APS {
 
         // Ordenando
         System.out.print("Chamada MERGE:     ");
-        ArrayList merge = MergeSort.ordenar(vetores5);
+        ArrayList merge = MergeSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) merge.get(0)));
+        System.out.println("C: " + MergeSort.comparacoes);
 
         System.out.print("Chamada INSERTION: ");
-        ArrayList insertion = InsertionSort.ordenar(vetores5);
+        ArrayList insertion = InsertionSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) insertion.get(0)));
+        System.out.println("C: " + InsertionSort.comparacoes);
 
         System.out.print("Chamada SELECTION: ");
-        ArrayList selection = SelectionSort.ordenar(vetores5);
+        ArrayList selection = SelectionSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) selection.get(0)));
+        System.out.println("C: " + SelectionSort.comparacoes);
 
         System.out.print("Chamada HEAPSORT:  ");
-        ArrayList heap = HeapSort.ordenar(vetores5);
+        ArrayList heap = HeapSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) heap.get(0)));
+        System.out.println("C: " + HeapSort.comparacoes);
 
         System.out.print("Chamada BUBBLESORT:");
-        ArrayList bubble = BubbleSort.ordenar(vetores5);
+        ArrayList bubble = BubbleSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) bubble.get(0)));
+        System.out.println("C: " + BubbleSort.comparacoes);
 
         System.out.print("Chamada QUICKSORT: ");
-        ArrayList quick = QuickSort.ordenar(vetores5);
+        ArrayList quick = QuickSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) quick.get(0)));
+        System.out.println("C: " + QuickSort.comparacoes);
 
         System.out.print("Chamada COUNTSORT: ");
-        ArrayList count = CountSort.ordenar(vetores5);
+        ArrayList count = CountSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) count.get(0)));
+        System.out.println("C: " + CountSort.comparacoes);
 
         System.out.print("Chamada RADIXSORT: ");
-        ArrayList radix = RadixSort.ordenar(vetores5);
+        ArrayList radix = RadixSort.ordenar(vetores10000);
         System.out.println(Arrays.toString((int[]) radix.get(0)));
+        System.out.println("C: " + RadixSort.comparacoes);
 
         // Imprimindo vetores depois da ordenacao
         System.out.print("Apos a ordenacao:  ");
         System.out.println(Arrays.toString((int[]) vetores5.get(0)));
-
 
     }
 
